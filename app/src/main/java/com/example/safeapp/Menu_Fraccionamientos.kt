@@ -28,6 +28,7 @@ class Menu_Fraccionamientos: AppCompatActivity(), AdapterFraccionamiento.ClickLi
         val addFracBtn = findViewById<ImageButton>(R.id.addFracBtn)
         var recyclerView = findViewById<RecyclerView>(R.id.recyclerVFracc)
         /*se va a cambiar el tab layout de lugar al dar click en items_fracc_rv, mandar a llamr en AdapterFraccionamiento.kt*/
+        /*verificar si git funciono*/
         val tabLayout = findViewById<TabLayout>(R.id.tabLayFracc)
 
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
