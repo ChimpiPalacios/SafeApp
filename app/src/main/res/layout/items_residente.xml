@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView79"
+
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="1dp"
+        android:text="Residente"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton34"
+        app:layout_constraintTop_toTopOf="@+id/imageButton34" />
+
+    <ImageButton
+        android:id="@+id/imageButton34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toStartOf="@+id/textView79"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_previous" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton34">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView81"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView55"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp">
+
+
+            </ImageView>
+
+
+            <TextView
+                android:id="@+id/textView85"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ap"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView86"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView87"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Am"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView65"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView88"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Celular"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView66"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView89"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fraccionamiento"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView68"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView90"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calle"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView69"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView91"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Numero"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView70"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView92"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Perfil"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView71"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView93"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ref1"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView72"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView94"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cel1"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView73"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView95"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ref2"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView74"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView96"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cel2"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="92dp" />
+
+            <ImageView
+                android:id="@+id/imageView75"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:paddingEnd="45dp"
+
+                app:circularflow_radiusInDP="3dp"
+                app:srcCompat="@android:drawable/bottom_bar"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="111dp" />
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

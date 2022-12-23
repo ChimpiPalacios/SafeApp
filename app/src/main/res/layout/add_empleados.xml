@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/txtnombreemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Nombre"
+        android:minHeight="48dp"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/txtap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Apellido Paterno"
+        android:minHeight="48dp"
+        android:textColorHint="#78909C"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/txtam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Apeliido Materno"
+        android:minHeight="48dp"
+        android:textColorHint="#78909C"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/txtbdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Cumpleaños"
+        android:minHeight="48dp"
+        android:textColorHint="#78909C"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/txtturno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Turno"
+        android:minHeight="48dp"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/txtidusuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="ID Usuario"
+        android:minHeight="48dp"
+        android:autofillHints="" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btninsertemp"
+        android:hint="Insertar"/>
+
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

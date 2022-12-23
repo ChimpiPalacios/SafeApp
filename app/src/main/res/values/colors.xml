@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_color">#7B7B80</color>
+    <color name="purple_200">#2b7eb9</color>
+    <color name="purple_500">#2b7eb9</color>
+    <color name="purple_700">#2b7eb9</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#E91E63</color>
+
+    <!-- gradient color-->
+
+    <color name="startColor">#0064ab</color>
+    <color name="endColor">#80b2d5</color>
+    <color name="centerColor">#2b7eb9</color>
+
+</resources>

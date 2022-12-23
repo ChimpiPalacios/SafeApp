@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora de Entrada"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="677dp" />
+
+    <TextView
+        android:id="@+id/textView74"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visitante"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <TextView
+        android:id="@+id/textView73"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vehiculo"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="514dp" />
+
+    <ImageView
+        android:id="@+id/imageView62"
+        android:layout_width="338dp"
+        android:layout_height="57dp"
+        app:circularflow_radiusInDP="3dp"
+
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="696dp" />
+
+    <ImageView
+        android:id="@+id/imageView61"
+        android:layout_width="338dp"
+        android:layout_height="57dp"
+        app:circularflow_radiusInDP="3dp"
+
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="613dp" />
+
+    <ImageView
+        android:id="@+id/imageView60"
+        android:layout_width="338dp"
+        android:layout_height="57dp"
+        app:circularflow_radiusInDP="3dp"
+
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="533dp" />
+
+    <ImageView
+        android:id="@+id/imageView58"
+        android:layout_width="338dp"
+        android:layout_height="57dp"
+        app:circularflow_radiusInDP="3dp"
+
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="364dp" />
+
+    <ImageView
+        android:id="@+id/imageView59"
+        android:layout_width="338dp"
+        android:layout_height="57dp"
+        app:circularflow_radiusInDP="3dp"
+
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+    <ImageView
+        android:id="@+id/imageView54"
+        android:layout_width="338dp"
+        android:layout_height="57dp"
+        app:circularflow_radiusInDP="3dp"
+
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="111dp" />
+
+    <ImageView
+        android:id="@+id/imageView56"
+        android:layout_width="338dp"
+        android:layout_height="57dp"
+        app:circularflow_radiusInDP="3dp"
+
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <ImageView
+        android:id="@+id/imageView57"
+        android:layout_width="338dp"
+        android:layout_height="57dp"
+        app:circularflow_radiusInDP="3dp"
+
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="280dp" />
+
+    <TextView
+        android:id="@+id/textView69"
+
+
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+
+        android:text="Aquiles Serdan"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="125dp" />
+
+    <TextView
+        android:id="@+id/textView76"
+
+
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+
+        android:text="#104"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="210dp" />
+
+    <TextView
+        android:id="@+id/textView77"
+
+
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+
+        android:text="Constantino Chimal"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="297dp" />
+
+    <TextView
+        android:id="@+id/textView78"
+
+
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+
+        android:text="Alejandra Sanchez"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="379dp" />
+
+    <TextView
+        android:id="@+id/textView80"
+
+
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+
+        android:text="Jetta 2012 Negro"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="548dp" />
+
+    <TextView
+        android:id="@+id/textView82"
+
+
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+
+        android:text="12:00pm"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="710dp" />
+
+    <TextView
+        android:id="@+id/textView68"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calle"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="92dp" />
+
+    <TextView
+        android:id="@+id/textView66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numero"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="175dp" />
+
+    <TextView
+        android:id="@+id/textView71"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Placa"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="594dp" />
+
+    <TextView
+        android:id="@+id/textView72"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Credencial"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="430dp" />
+
+    <TextView
+        android:id="@+id/textView70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Residente"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="261dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon_previous"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView67"
+
+
+        android:layout_width="302dp"
+        android:layout_height="64dp"
+
+        android:text="Check In"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon_list"
+        tools:layout_editor_absoluteX="299dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon_list"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="197dp" />
+
+    <ImageView
+        android:id="@+id/imageView63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon_hut"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="292dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon_list"
+        tools:layout_editor_absoluteX="302dp"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon_camara"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="451dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon_camara"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="614dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
