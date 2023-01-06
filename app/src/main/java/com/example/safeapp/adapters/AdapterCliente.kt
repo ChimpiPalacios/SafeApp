@@ -23,10 +23,7 @@ class AdapterCliente (val clientes:ArrayList<Clientes>, clickListener: AdapterCl
     private lateinit var context: Context
     private var clickListener: ClickListener = clickListener
 
-    public fun setData(clientes: List<Clientes>){
-        this.ClientesList = clientes
-        notifyDataSetChanged()
-    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):AdapterCliente.ViewHolder {
         var v= LayoutInflater.from(parent.context).inflate(R.layout.items_clientes_rv,parent, false)

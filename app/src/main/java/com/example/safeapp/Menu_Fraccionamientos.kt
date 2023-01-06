@@ -27,9 +27,7 @@ class Menu_Fraccionamientos: AppCompatActivity(), AdapterFraccionamiento.ClickLi
         val btn_back = findViewById<ImageButton>(R.id.backFracBtn)
         val addFracBtn = findViewById<ImageButton>(R.id.addFracBtn)
         var recyclerView = findViewById<RecyclerView>(R.id.recyclerVFracc)
-        /*se va a cambiar el tab layout de lugar al dar click en items_fracc_rv, mandar a llamr en AdapterFraccionamiento.kt*/
-        /*verificar si git funciono*/
-        val tabLayout = findViewById<TabLayout>(R.id.tabLayFracc)
+
 
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
 
@@ -86,12 +84,12 @@ class Menu_Fraccionamientos: AppCompatActivity(), AdapterFraccionamiento.ClickLi
     }
 
     override fun clickedItem(Fraccionamientos: Fraccionamientos) {
-        Intent(this,UpdateFraccionamientos::class.java).putExtra("fraccionamiento",Fraccionamientos.nombre)
-        Intent(this,UpdateFraccionamientos::class.java).putExtra("estado",Fraccionamientos.estado)
-        Intent(this,UpdateFraccionamientos::class.java).putExtra("etapa",Fraccionamientos.etapa)
-        Intent(this,UpdateFraccionamientos::class.java).putExtra("pais",Fraccionamientos.pais)
-        Intent(this,UpdateFraccionamientos::class.java).putExtra("municipio",Fraccionamientos.municipio)
-        startActivity(Intent(this,UpdateFraccionamientos::class.java))
+        Intent(this,Check_in::class.java).putExtra("fraccionamiento",Fraccionamientos.nombre)
+        Intent(this,Check_in::class.java).putExtra("estado",Fraccionamientos.estado)
+        Intent(this,Check_in::class.java).putExtra("etapa",Fraccionamientos.etapa)
+        Intent(this,Check_in::class.java).putExtra("pais",Fraccionamientos.pais)
+        Intent(this,Check_in::class.java).putExtra("municipio",Fraccionamientos.municipio)
+        startActivity(Intent(this,Check_in::class.java))
     }
 }
 

@@ -6,13 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/background_bg"
-    android:orientation="vertical">
-
-    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_bg"
+        android:orientation="vertical">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -24,7 +23,7 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp">
                 <ImageButton
-                    android:id="@+id/btnbackclnt"
+                    android:id="@+id/btnbackcheckin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -37,29 +36,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="Insertar Cliente"
+                    android:text="Insertar CheckIn"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     android:textStyle="bold" />
             </LinearLayout>
-
-
-
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@drawable/rv_bg">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="15dp">
+               <!-- <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ID123123"
+                    android:id="@+id/textIDcheckin"
+                    />-->
                 <EditText
-                    android:id="@+id/txtnombre"
+                    android:id="@+id/txtnombrecheckin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -68,80 +68,52 @@
                     android:autofillHints="" />
 
                 <EditText
-                    android:id="@+id/txtempresa"
+                    android:id="@+id/txtvehiculocheckin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="Empresa"
+                    android:hint="Vehiculo"
                     android:minHeight="48dp"
                     android:autofillHints="" />
 
                 <EditText
-                    android:id="@+id/txtcolor"
+                    android:id="@+id/txtplacacheckin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="Color"
+                    android:hint="Placa"
                     android:minHeight="48dp"
                     android:autofillHints="" />
 
                 <EditText
-                    android:id="@+id/txtnumerocel"
+                    android:id="@+id/txtcredencialcheckin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="Numero Cel"
+                    android:hint="Credencial"
                     android:minHeight="48dp"
                     android:textColorHint="#78909C"
                     android:autofillHints="" />
-
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Logo"
-                    android:minHeight="30dp"
-                    android:textSize="20dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:onClick="pickPhoto"
+                <EditText
+                    android:id="@+id/txthoracheckin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
+                    android:hint="Hora"
+                    android:minHeight="48dp"
+                    android:textColorHint="#78909C"
+                    android:autofillHints=""
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     />
-              <TextView
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:id="@+id/textView"
-                  android:text="Add Photo From Gallery"
-                  android:layout_marginTop="20dp"
-                  android:textSize="20dp"
-                 />
-
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/btninsertcl"
+                    android:id="@+id/btninsertcheckin"
                     android:text="Insertar"
                     android:textColor="@color/white"/>
-
             </LinearLayout>
-
-
-
         </LinearLayout>
-
-
-
-
-
-
-</androidx.appcompat.widget.LinearLayoutCompat>
-
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>
