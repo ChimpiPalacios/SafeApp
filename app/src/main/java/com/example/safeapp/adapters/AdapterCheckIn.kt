@@ -27,7 +27,7 @@ class AdapterCheckIn(
                 if (position == 2){
                     CallesFragment()
                 }else{
-                    fraccFragment()
+                   fraccFragment()
                 }
             }
         }
