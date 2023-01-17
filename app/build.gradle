@@ -10,7 +10,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.safeapp"
+        applicationId "com.customsoftware.safeapp"
         minSdk 24
         targetSdk 32
         versionCode 1
