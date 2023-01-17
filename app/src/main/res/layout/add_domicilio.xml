@@ -4,7 +4,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <androidx.appcompat.widget.LinearLayoutCompat
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -16,7 +15,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="20dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,31 +50,48 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="15dp">
-                <!-- <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                     android:text="ID123123"
-                     android:id="@+id/textIDcheckin"
-                     />-->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Calle"
+                    android:layout_marginLeft="8dp"/>
+                <SearchView
+                    android:id="@+id/search_calle_dom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/search_bg"
+                />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ListView
+                        android:id="@+id/list_dom"
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:nestedScrollingEnabled="true"
+                        android:visibility="gone"
+
+                        />
+                </FrameLayout>
                 <EditText
-                    android:id="@+id/txtcalledom"
+                    android:id="@+id/txtnumerodom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="Nombre"
+                    android:hint="Numero Exterior"
                     android:minHeight="48dp"
-                    android:autofillHints="" />
-
+                    android:autofillHints=""
+                    android:inputType="number"/>
                 <EditText
-                    android:id="@+id/txtnombredom"
+                    android:id="@+id/txtextenciondom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="Vehiculo"
+                    android:hint="Numero Interior"
                     android:minHeight="48dp"
                     android:autofillHints="" />
-
-
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

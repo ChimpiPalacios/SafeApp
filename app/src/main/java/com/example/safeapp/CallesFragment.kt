@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.safeapp.adapters.AdapterFragmCheckIn
@@ -51,7 +52,8 @@ class CallesFragment : Fragment() {
         val stm: Statement = conexionDB()!!.createStatement()
         val rs: ResultSet = stm.executeQuery("SELECT * FROM SP_DOMICILIO")
         if (!rs.isBeforeFirst()) {
-            //Toast.makeText(this, "NO SE ENCONTRARON REGISTROS", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "NO SE ENCONTRARON REGISTROS", Toast.LENGTH_SHORT).show()
+
         }
         // Inflate the layout for this fragment
         var domicilios = ArrayList<Domicilios>()
@@ -87,23 +89,23 @@ class CallesFragment : Fragment() {
             TODO("Not yet implemented")
         }
     }
-        private fun conexionDB(): Connection? {
-            var cnn: Connection? = null
+    private fun conexionDB(): Connection? {
+        var cnn: Connection? = null
 
-            try {
-                val politica = StrictMode.ThreadPolicy.Builder().permitAll().build()
-                StrictMode.setThreadPolicy(politica)
-                Class.forName("com.mysql.jdbc.Driver").newInstance()
-                cnn = DriverManager.getConnection(
-                    "jdbc:mysql://www.customsoftware.com.mx:3306/i2721332_wp1",
-                    "chimpi",
-                    "Chimpi8108"
-                )
-            } catch (e: java.lang.Exception) {
-                //Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
-            }
-            return cnn
+        try {
+            val politica = StrictMode.ThreadPolicy.Builder().permitAll().build()
+            StrictMode.setThreadPolicy(politica)
+            Class.forName("com.mysql.jdbc.Driver").newInstance()
+            cnn = DriverManager.getConnection(
+                "jdbc:mysql://www.customsoftware.com.mx:3306/i2721332_wp1",
+                "chimpi",
+                "Chimpi8108"
+            )
+        } catch (e: java.lang.Exception) {
+            Toast.makeText(activity, e.message, Toast.LENGTH_LONG).show()
         }
+        return cnn
+    }
 
     companion object {
         /**

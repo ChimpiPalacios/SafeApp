@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
-                card_view:srcCompat="@drawable/icon_user"/>
+                card_view:srcCompat="@drawable/icon_hut"/>
 
             <TextView
                 android:id="@+id/item_domicilioID"
@@ -35,7 +35,8 @@
                 android:paddingTop="5dp"
                 android:text="Id X"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:visibility="invisible"/>
 
             <Button
                 android:layout_width="50dp"
@@ -81,7 +82,7 @@
             android:layout_marginStart="15dp">
 
             <TextView
-                android:id="@+id/item_hora_checkin"
+                android:id="@+id/item_calle_domicilio"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -91,7 +92,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/item_nombre_checkin"
+                android:id="@+id/item_numero_domicilio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

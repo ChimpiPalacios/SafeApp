@@ -53,7 +53,7 @@
                             android:textStyle="bold" />
                     </LinearLayout>
                     <ImageButton
-                        android:id="@+id/addChekInBtn"
+                        android:id="@+id/addResidBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
-                android:id="@+id/recyclerVCalles"
+                android:id="@+id/recyclerVResid"
                 ></androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>

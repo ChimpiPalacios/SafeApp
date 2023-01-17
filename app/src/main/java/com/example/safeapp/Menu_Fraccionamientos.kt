@@ -97,7 +97,7 @@ class Menu_Fraccionamientos: AppCompatActivity(), AdapterFraccionamiento.ClickLi
 
         mFragment.arguments = mBundle
         // Add the fragment to the activity or replace it, depending on your needs
-        supportFragmentManager.beginTransaction().add(R.id.viewP2, mFragment).commit()
+        //supportFragmentManager.beginTransaction().add(R.id.viewP2, mFragment).commit()
 
 
         startActivity(Intent(this,Check_in::class.java))

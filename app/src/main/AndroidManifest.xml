@@ -18,6 +18,15 @@
         android:theme="@style/Theme.SafeApp"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateResidentes"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateDomicilio"
+            android:exported="false" />
+        <activity
+            android:name=".AddResidente"
+            android:exported="false" />
+        <activity
             android:name=".AddDomicilio"
             android:exported="false" />
         <activity

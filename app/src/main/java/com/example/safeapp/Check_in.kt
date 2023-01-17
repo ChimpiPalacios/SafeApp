@@ -18,15 +18,9 @@ class Check_in : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.check_in)
-
-
         tabLayout = findViewById(R.id.tabLayCheckIn)
         viewPager2 = findViewById(R.id.viewP2)
-
         adapterCheckIn = AdapterCheckIn(supportFragmentManager,lifecycle)
-
-
-
         viewPager2.adapter = adapterCheckIn
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
@@ -62,9 +56,6 @@ class Check_in : AppCompatActivity() {
 
     private fun getData(){
         val fraccionamiento = intent.getStringExtra("fraccionamiento")
-
-
         //textFracTab.text = fraccionamiento
-
     }
 }
