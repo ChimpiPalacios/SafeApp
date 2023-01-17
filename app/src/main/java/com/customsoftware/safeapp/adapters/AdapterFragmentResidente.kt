@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.safeapp.R
-import com.example.safeapp.modelos.Residentes
+import com.customsoftware.safeapp.R
+import com.customsoftware.safeapp.modelos.Residentes
 
 import java.sql.Connection
 import java.sql.DriverManager

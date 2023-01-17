@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.safeapp.R
-import com.example.safeapp.modelos.CheckIns
-import com.example.safeapp.modelos.Clientes
+import com.customsoftware.safeapp.R
+import com.customsoftware.safeapp.modelos.CheckIns
+import com.customsoftware.safeapp.modelos.Clientes
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.Statement

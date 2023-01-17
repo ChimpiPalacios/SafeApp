@@ -4,10 +4,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.safeapp.CallesFragment
-import com.example.safeapp.ChackInFragment
-import com.example.safeapp.ResidFragment
-import com.example.safeapp.fraccFragment
+import com.customsoftware.safeapp.CallesFragment
+import com.customsoftware.safeapp.ChackInFragment
+import com.customsoftware.safeapp.ResidFragment
+import com.customsoftware.safeapp.fraccFragment
 
 class AdapterCheckIn(
     fragmentManager: FragmentManager,

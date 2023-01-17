@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.safeapp.R
-import com.example.safeapp.modelos.Empleados
-import com.example.safeapp.modelos.Fraccionamientos
+import com.customsoftware.safeapp.R
+import com.customsoftware.safeapp.modelos.Empleados
+import com.customsoftware.safeapp.modelos.Fraccionamientos
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.Statement
