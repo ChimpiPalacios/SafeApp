@@ -16,4 +16,9 @@
     <color name="endColor">#80b2d5</color>
     <color name="centerColor">#2b7eb9</color>
 
+    <color name="shape_color_light">#FFFFFF</color>
+    <color name="shape_color_dark">#000000</color>
+
+
+
 </resources>

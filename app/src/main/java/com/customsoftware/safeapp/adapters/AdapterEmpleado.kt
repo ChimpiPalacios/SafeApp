@@ -16,13 +16,13 @@ import java.sql.DriverManager
 import java.sql.Statement
 
 class AdapterEmpleado (val empleados:ArrayList<Empleados>, clickListener: ClickListener): RecyclerView.Adapter<AdapterEmpleado.ViewHolder>() {
-    var position= -1
 
+    var position= -1
     private var EmpleadosList: List<Empleados> = arrayListOf()
     private lateinit var context: Context
     private var clickListener: AdapterEmpleado.ClickListener = clickListener
 
-    public fun setData(empleados: List<Empleados>){
+    fun setData(empleados: List<Empleados>){
         this.EmpleadosList = empleados
         notifyDataSetChanged()
     }
@@ -30,8 +30,8 @@ class AdapterEmpleado (val empleados:ArrayList<Empleados>, clickListener: ClickL
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):AdapterEmpleado.ViewHolder {
         var v= LayoutInflater.from(parent.context).inflate(R.layout.items_empleados_rv,parent, false)
         return ViewHolder(v)
-
     }
+
     override fun getItemCount(): Int {
         return empleados.size
     }
@@ -39,7 +39,6 @@ class AdapterEmpleado (val empleados:ArrayList<Empleados>, clickListener: ClickL
     override fun onBindViewHolder(holder: AdapterEmpleado.ViewHolder, position: Int) {
         this.position = position
         holder.bindItems(empleados[position])
-
 
         var empleadatiion = empleados[position]
         var nombre = empleadatiion.nombre
@@ -56,12 +55,11 @@ class AdapterEmpleado (val empleados:ArrayList<Empleados>, clickListener: ClickL
         holder.turno.text = turno
         holder.id_usuario.text = id_usuario.toString()
 
-
-
         holder.itemView.setOnClickListener {
             clickListener.clickedItem(empleadatiion)
         }
     }
+
     interface ClickListener{
         fun clickedItem(empleados: Empleados)
     }
@@ -74,7 +72,6 @@ class AdapterEmpleado (val empleados:ArrayList<Empleados>, clickListener: ClickL
         var turno = itemView.findViewById<TextView>(R.id.item_turno)
         var id_usuario = itemView.findViewById<TextView>(R.id.item_id_usuario)
 
-
         fun bindItems(empleados: Empleados){
 
             val txtEmp = itemView.findViewById<TextView>(R.id.item_nombre)
@@ -86,7 +83,6 @@ class AdapterEmpleado (val empleados:ArrayList<Empleados>, clickListener: ClickL
             val btnRvDeleteEmp = itemView.findViewById<Button>(R.id.btnRvDeleteEmp)
             var EMPLEADO : String = empleados.nombre
 
-
             txtEmp.text=empleados.nombre
             txtAp.text=empleados.ap
             txtAm.text=empleados.am
@@ -94,10 +90,9 @@ class AdapterEmpleado (val empleados:ArrayList<Empleados>, clickListener: ClickL
             txtTurno.text=empleados.turno
             txtIdUs.text=empleados.ID_USUARIO.toString()
 
-
-            btnRvDeleteEmp.setOnClickListener { eliminar(EMPLEADO) }
-
-
+            btnRvDeleteEmp.setOnClickListener {
+                eliminar(EMPLEADO)
+            }
         }
 
         private fun conexionDB(): Connection? {
@@ -125,14 +120,7 @@ class AdapterEmpleado (val empleados:ArrayList<Empleados>, clickListener: ClickL
 
             }
         }
-
-
-
-
     }
-
-
-
 }
 
 

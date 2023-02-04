@@ -1,5 +1,12 @@
 package com.customsoftware.safeapp.modelos
 
 import java.sql.Date
+import java.sql.Timestamp
 
-data class CheckIns (val nombre:String, val vehiculo:String, val placa:String, val credencial:String, val h_entrada: Date, val idcheck:Int, val idresid:Int, val idusu:Int)
+data class CheckIns (
+    val nombre:String,
+    val vehiculo:String,
+    val nombreresi:String,
+    val hora: Timestamp,
+    val idresid:Int
+    )

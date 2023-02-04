@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ChackInFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -70,17 +70,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_marginTop="25dp">
 
+            <SearchView
+                android:id="@+id/search_checkin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:queryHint="Buscar Residente"
+
+                />
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
-                android:id="@+id/recyclerVCheckIn"
-                ></androidx.recyclerview.widget.RecyclerView>
+                android:id="@+id/recyclerVCheckIn" />
 
         </LinearLayout>
 

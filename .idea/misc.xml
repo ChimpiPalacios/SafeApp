@@ -4,21 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3505" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/drawable-v25/rv_bg.xml" value="0.1955" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/drawable/background_bg.xml" value="0.2595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3505" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/drawable/rv_bg.xml" value="0.2595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/drawable/search_bg.xml" value="0.3665" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/drawable/status_bar_bg.xml" value="0.2305" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/Check_In.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/activity_check_in.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/activity_profile.xml" value="0.33" />
-        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_check_in.xml" value="0.1" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_check_in.xml" value="0.25" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_clientes.xml" value="0.33" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_domicilio.xml" value="0.33" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_empleados.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_fraccionamientos.xml" value="0.3125" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_reportes.xml" value="0.297554347826087" />
-        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_residente.xml" value="0.1" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_residente.xml" value="0.33" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/add_usuarios.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/addfraccionamientos.xml" value="0.25" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/check_in.xml" value="0.25" />
@@ -29,7 +31,7 @@
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/fragment_calles.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/fragment_chack_in.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/fragment_check_in.xml" value="0.25" />
-        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/fragment_fracc.xml" value="0.1" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/fragment_fracc.xml" value="0.2" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/fragment_resid.xml" value="0.15898825654923215" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/irems_residentes_rv.xml" value="0.325" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/items_calles_rv.xml" value="0.325" />
@@ -44,19 +46,22 @@
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/items_reporte.xml" value="0.33" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/items_reports_rv.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/items_residente.xml" value="0.33" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/list_item.xml" value="0.325" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/menu.xml" value="0.358695652173913" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/menu_clientes.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/menu_empleados.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/menu_fraccionamiento.xml" value="0.25" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/menu_reportes.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/reportes_menu.xml" value="0.33" />
-        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/sign_in.xml" value="0.32592592592592595" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/show_check_in.xml" value="0.25" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/sign_in.xml" value="0.1" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/update_check_in.xml" value="0.32592592592592595" />
-        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/update_domicilio.xml" value="0.20153985507246377" />
-        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/update_residentes.xml" value="0.20153985507246377" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/update_domicilio.xml" value="0.33" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/update_residentes.xml" value="0.33" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/updateclientes.xml" value="0.3212962962962963" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/updateempleados.xml" value="0.32592592592592595" />
         <entry key="..\:/Custom Software/SafeApp/app/src/main/res/layout/updatefraccionamientos.xml" value="0.32592592592592595" />
+        <entry key="..\:/Custom Software/SafeApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.332" />
       </map>
     </option>
   </component>

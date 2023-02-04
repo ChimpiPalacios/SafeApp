@@ -1,9 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UpdateResidentes">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:background="@drawable/background_bg"
+        android:paddingTop="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <ImageButton
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/btnbackupres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:contentDescription="Back"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    app:srcCompat="@drawable/icon_previous" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:text="Actualizar Residente"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/rv_bg">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Referencias:"
+                        />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <ListView
+                            android:id="@+id/list_ref_res"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:nestedScrollingEnabled="true"
+                            />
+                    </FrameLayout>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Nombre"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+                    <EditText
+                        android:id="@+id/txtupnombreres"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre"
+                        android:minHeight="48dp"
+                        android:autofillHints=""
+                        app:showAsAction="always"
+                        app:actionViewClass="android.support.v7.widget.SearchView"
+                        android:background="@drawable/search_bg"
+                        android:paddingStart="10dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Apellido Paterno"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"/>
+                    <EditText
+                        android:id="@+id/txtupapres"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Apellido Paterno"
+                        android:minHeight="48dp"
+                        android:autofillHints=""
+                        android:background="@drawable/search_bg"
+                        android:paddingStart="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Apellido Materno"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        />
+                    <EditText
+                        android:id="@+id/txtupamres"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Apellido Materno"
+                        android:minHeight="48dp"
+                        android:autofillHints=""
+                        android:background="@drawable/search_bg"
+                        android:paddingStart="10dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Numero de Celular"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        />
+                    <EditText
+                        android:id="@+id/txtupnumerocelres"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Numero Cel"
+                        android:minHeight="48dp"
+                        android:autofillHints=""
+                        android:inputType="number"
+                        android:background="@drawable/search_bg"
+                        android:paddingStart="10dp"
+                        android:maxLength="10"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Perfil"
+                        android:layout_marginLeft="8dp"/>
+                    <EditText
+                        android:id="@+id/search_up_perfil_res"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:background="@drawable/search_bg"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:paddingStart="10dp"
+                        />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <ListView
+                            android:id="@+id/list_up_perfil_res"
+                            android:layout_width="match_parent"
+                            android:layout_height="144dp"
+                            android:nestedScrollingEnabled="true"
+                            android:visibility="gone"
+                            />
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Calle"
+                        android:layout_marginLeft="8dp"/>
+
+                    <EditText
+                        android:id="@+id/search_up_calle_res"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:background="@drawable/search_bg"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:paddingStart="10dp"
+                        />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <ListView
+                            android:id="@+id/list_up_calle_res"
+                            android:layout_width="match_parent"
+                            android:layout_height="144dp"
+                            android:nestedScrollingEnabled="true"
+                            android:visibility="gone"
+                            />
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Numero"
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/textoupnumerores"/>
+                    <EditText
+                        android:id="@+id/search_up_numero_res"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:background="@drawable/search_bg"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:paddingStart="10dp"
+                        />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ListView
+                            android:id="@+id/list_up_numero_res"
+                            android:layout_width="match_parent"
+                            android:layout_height="144dp"
+                            android:nestedScrollingEnabled="true"
+                            android:visibility="gone"
+                            />
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tipo Residente"
+                        android:layout_marginLeft="8dp"/>
+                    <EditText
+                        android:id="@+id/search_up_tipo_res"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:background="@drawable/search_bg"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:paddingStart="10dp"
+                        />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <ListView
+                            android:id="@+id/list_up_tipo_res"
+                            android:layout_width="match_parent"
+                            android:layout_height="96dp"
+                            android:nestedScrollingEnabled="true"
+                            android:visibility="gone"
+
+                            />
+                    </FrameLayout>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/btnupinsertres"
+                        android:text="Actualizar"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
+
+

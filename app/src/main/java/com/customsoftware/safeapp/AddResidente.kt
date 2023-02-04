@@ -1,10 +1,12 @@
 package com.customsoftware.safeapp
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import android.os.StrictMode
 import android.view.View
+import android.view.WindowManager
 import android.widget.*
 import kotlinx.android.synthetic.main.add_residente.*
 import java.sql.Connection
@@ -40,6 +42,7 @@ class AddResidente : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.add_residente)
 
         //final MenuIteam searchItem = menu.findItem()
@@ -135,28 +138,7 @@ class AddResidente : AppCompatActivity() {
 
         list_calle_res.adapter = adapter_calle
 
-        /*search_calle_res.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
 
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                search_calle_res.clearFocus()
-                if(calles.contains(query)){
-                    adapter_calle.filter.filter(query)
-                    if (query != null) {
-                        text_calle = query
-                    }
-                }
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                adapter_calle.filter.filter(newText)
-                if (newText != null) {
-                    text_calle = newText
-                }
-                return false
-            }
-
-        })*/
 
         list_numero_res.onItemClickListener = object : AdapterView.OnItemClickListener {
             override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -171,28 +153,7 @@ class AddResidente : AppCompatActivity() {
 
         list_numero_res.adapter = adapter_numero
 
-       /* search_numero_res.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
 
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                search_numero_res.clearFocus()
-                if(numeros.contains(query)){
-                    adapter_numero.filter.filter(query)
-                    if (query != null) {
-                        text_numero = query
-                    }
-                }
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                adapter_numero.filter.filter(newText)
-                if (newText != null) {
-                    text_numero = newText
-                }
-                return false
-            }
-
-        })*/
 
         list_perfil_res.onItemClickListener = object : AdapterView.OnItemClickListener {
             override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -207,28 +168,7 @@ class AddResidente : AppCompatActivity() {
 
         list_perfil_res.adapter = adapter_perfil
 
-       /* search_perfil_res.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
 
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                search_perfil_res.clearFocus()
-                if(perfiles.contains(query)){
-                    adapter_perfil.filter.filter(query)
-                    if (query != null) {
-                        text_perfil = query
-                    }
-                }
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                adapter_perfil.filter.filter(newText)
-                if (newText != null) {
-                    text_perfil = newText
-                }
-                return false
-            }
-
-        })*/
 
         list_tipo_res.onItemClickListener = object : AdapterView.OnItemClickListener {
             override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -243,28 +183,7 @@ class AddResidente : AppCompatActivity() {
 
         list_tipo_res.adapter = adapter_tipo
 
-       /* search_tipo_res.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
 
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                search_tipo_res.clearFocus()
-                if(tipos.contains(query)){
-                    adapter_tipo.filter.filter(query)
-                    if (query != null) {
-                        text_tipo = query
-                    }
-                }
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                adapter_tipo.filter.filter(newText)
-                if (newText != null) {
-                    text_tipo = newText
-                }
-                return false
-            }
-
-        })*/
     }
     private fun conexionDB(): Connection? {
         var cnn: Connection? = null
@@ -287,11 +206,12 @@ class AddResidente : AppCompatActivity() {
         var NOMBRE : String = txtnombreres.text.toString().trim()
         var AP : String = txtapres.text.toString().trim()
         var AM : String = txtamres.text.toString().trim()
-        var NUMEROCEL : CharSequence = txtnumerocelres.text.trim()
+        var NUMEROCEL : String = txtnumerocelres.text.trim().toString()
         var CALLE: String = search_calle_res.text.toString().trim()
         var NUMERO: String = search_numero_res.text.toString().trim()
         var PERFIL : String = search_perfil_res.text.toString().trim()
         var TIPO_RES : String = search_tipo_res.text.toString().trim()
+        var IDDOM : Int = 0
 
         if(NOMBRE.isEmpty()){
             txtnombreres.setError("El campo Nombre es necesario")
@@ -313,18 +233,27 @@ class AddResidente : AppCompatActivity() {
         } else{
             try {
                 val stm: Statement = conexionDB()!!.createStatement()
-                val rs: ResultSet = stm.executeQuery("SELECT IDDOM FROM SP_DOMICILIO WHERE CALLE = '$CALLE' AND NUMERO = '$NUMERO'")
+                val rs: ResultSet = stm.executeQuery("SELECT * FROM SP_DOMICILIO WHERE CALLE='$CALLE' AND NUMERO='$NUMERO'")
                 if (!rs.isBeforeFirst()){
-                    var IDDOM : String = rs.getString("IDDOM")
-                    val affectedRows: Int = stm.executeUpdate("INSERT INTO SP_RESIDENTE (NOMBRE,NUMEROCEL,AP,AM,PERFIL,IDDOM,TIPO_RES) VALUES ('$NOMBRE',$NUMEROCEL,'$AP','$AM','$PERFIL',$IDDOM,'$TIPO_RES')")
-                    if (affectedRows > 0) {
-                        Toast.makeText(applicationContext,"INSERTADO CORRECTAMENTE", Toast.LENGTH_SHORT).show()
-                    }
-                }else{
                     Toast.makeText(applicationContext,"NO EXISTE EL DOMICILIO ACTUAL, FAVOR DE REGISTRARLO", Toast.LENGTH_SHORT).show()
                 }
+                while (rs.next()){
+                    IDDOM = rs.getInt("IDDOM")
+                }
 
-                stm.connection.close()
+                val affectedRows: Int = stm.executeUpdate("INSERT INTO SP_RESIDENTE (NOMBRE,NUMEROCEL,AP,AM,PERFIL,IDDOM,TIPO_RES) VALUES ('$NOMBRE',$NUMEROCEL,'$AP','$AM','$PERFIL',$IDDOM,'$TIPO_RES')")
+                if (affectedRows > 0) {
+                    val intent = Intent(this, Check_in::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
+                }
+
+
+
+                rs.close()
+
+
             } catch (e: java.lang.Exception) {
                 Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
             }
@@ -334,8 +263,10 @@ class AddResidente : AppCompatActivity() {
     private fun lista_calles(){
 
         calles.clear()
+        val sharedPref = this.getSharedPreferences("id_data", Context.MODE_PRIVATE)
+        val IDFRACC = sharedPref.getInt("ID", 0)
         val stm: Statement = conexionDB()!!.createStatement()
-        val rs: ResultSet = stm.executeQuery("SELECT DISTINCT CALLE FROM SP_DOMICILIO ORDER BY CALLE ASC")
+        val rs: ResultSet = stm.executeQuery("SELECT DISTINCT CALLE FROM SP_DOMICILIO WHERE IDFRACC=$IDFRACC ORDER BY CALLE ASC")
         if (!rs.isBeforeFirst()){
             Toast.makeText(this, "NO SE ENCONTRARON REGISTROS", Toast.LENGTH_SHORT).show()
             return
@@ -352,9 +283,11 @@ class AddResidente : AppCompatActivity() {
 
     private fun lista_numeros(){
         numeros.clear()
+        val sharedPref = this.getSharedPreferences("id_data", Context.MODE_PRIVATE)
+        val IDFRACC = sharedPref.getInt("ID", 0)
         val CALLE:String = text_calle
         val stm: Statement = conexionDB()!!.createStatement()
-        val rs: ResultSet = stm.executeQuery("SELECT NUMERO FROM SP_DOMICILIO WHERE CALLE = '$CALLE' ORDER BY NUMERO ASC")
+        val rs: ResultSet = stm.executeQuery("SELECT NUMERO FROM SP_DOMICILIO WHERE CALLE = '$CALLE' AND IDFRACC=$IDFRACC ORDER BY NUMERO ASC")
         if (!rs.isBeforeFirst()){
             Toast.makeText(this, "NO SE ENCONTRARON REGISTROS", Toast.LENGTH_SHORT).show()
             return
@@ -372,9 +305,9 @@ class AddResidente : AppCompatActivity() {
     private fun lista_perfiles(){
         perfiles.clear()
         perfiles.add("")
-        perfiles.add("Presidente")
-        perfiles.add("Tesorero")
-        perfiles.add("Secretario")
+        perfiles.add("PRESIDENTE")
+        perfiles.add("TESORERO")
+        perfiles.add("SECRETARIO")
         list_perfil_res.visibility = View.VISIBLE
 
 
@@ -382,8 +315,8 @@ class AddResidente : AppCompatActivity() {
 
     private fun lista_tipo(){
         tipos.clear()
-        tipos.add("Propietario")
-        tipos.add("Arrendatario")
+        tipos.add("PROPIETARIO")
+        tipos.add("ARRENDATARIO")
         list_tipo_res.visibility = View.VISIBLE
 
 

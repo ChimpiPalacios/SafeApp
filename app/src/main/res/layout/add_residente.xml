@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    >
     <androidx.appcompat.widget.LinearLayoutCompat
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_bg"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="15dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="Insertar Residente"
+                    android:text="Agregar Residente"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     android:textStyle="bold" />
@@ -51,43 +53,67 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Nombre"
+                    android:layout_marginLeft="8dp"/>
                 <EditText
                     android:id="@+id/txtnombreres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:hint="Nombre"
                     android:minHeight="48dp"
                     android:autofillHints=""
                     app:showAsAction="always"
                     app:actionViewClass="android.support.v7.widget.SearchView"
+                    android:background="@drawable/search_bg"
+                    android:paddingStart="10dp"
                     />
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Apellido paterno"
+                    android:layout_marginLeft="8dp"/>
                 <EditText
                     android:id="@+id/txtapres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:hint="Apellido Paterno"
                     android:minHeight="48dp"
-                    android:autofillHints="" />
+                    android:autofillHints=""
+                    android:background="@drawable/search_bg"
+                    android:paddingStart="10dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Apellido materno"
+                    android:layout_marginLeft="8dp"/>
                 <EditText
                     android:id="@+id/txtamres"
                         android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:hint="Apellido Materno"
                     android:minHeight="48dp"
-                    android:autofillHints="" />
+                    android:autofillHints=""
+                    android:background="@drawable/search_bg"
+                    android:paddingStart="10dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Numero de Celular"
+                    android:layout_marginLeft="8dp"/>
                 <EditText
                     android:id="@+id/txtnumerocelres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:hint="Numero Cel"
                     android:minHeight="48dp"
                     android:autofillHints=""
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:background="@drawable/search_bg"
+                    android:paddingStart="10dp"
+                    android:maxLength="10"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -98,10 +124,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
                     android:background="@drawable/search_bg"
+                    android:paddingStart="10dp"
                     android:inputType="none"
                     android:focusable="false"
                     android:clickable="false"
-                    android:paddingStart="10dp"
                     />
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -159,7 +185,6 @@
                     android:clickable="false"
                     android:paddingStart="10dp"
                     />
-
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -185,7 +210,7 @@
                     android:inputType="none"
                     android:focusable="false"
                     android:clickable="false"
-android:paddingStart="10dp"
+                    android:paddingStart="10dp"
                     />
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -205,7 +230,7 @@ android:paddingStart="10dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:id="@+id/btninsertres"
-                    android:text="Insertar"
+                    android:text="Agregar"
                     android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>

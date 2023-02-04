@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
@@ -29,6 +30,7 @@ class Menu_Empleados: AppCompatActivity(), AdapterEmpleado.ClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.menu_empleados)
 
         var recyclerView = findViewById<RecyclerView>(R.id.recyclerVEmp)

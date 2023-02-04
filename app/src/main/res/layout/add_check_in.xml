@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
     <androidx.appcompat.widget.LinearLayoutCompat
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_bg"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="15dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="20dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="Insertar CheckIn"
+                    android:text="Agregar CheckIn"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     android:textStyle="bold" />
@@ -52,67 +51,182 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="15dp">
-               <!-- <TextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="ID123123"
-                    android:id="@+id/textIDcheckin"
-                    />-->
+                    android:text="Calle"
+                    android:layout_marginLeft="8dp"/>
+                <EditText
+                    android:id="@+id/search_calle_checkin"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@drawable/search_bg"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:paddingStart="10dp"
+                    android:hint="Calle" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ListView
+                        android:id="@+id/list_calle_checkin"
+                        android:layout_width="match_parent"
+                        android:layout_height="144dp"
+                        android:nestedScrollingEnabled="true"
+                        android:visibility="gone" />
+                </FrameLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Numero"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/textonumerores"/>
+                <EditText
+                    android:id="@+id/search_numero_checkin"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@drawable/search_bg"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:paddingStart="10dp"
+                    android:hint="Numero" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ListView
+                        android:id="@+id/list_numero_checkin"
+                        android:layout_width="match_parent"
+                        android:layout_height="144dp"
+                        android:nestedScrollingEnabled="true"
+                        android:visibility="gone" />
+                </FrameLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Residentes"
+                    android:layout_marginLeft="8dp"/>
+                <SearchView
+                    android:id="@+id/search_res_checkin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/search_bg" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ListView
+                        android:id="@+id/list_res_checkin"
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:nestedScrollingEnabled="true"
+                        android:visibility="gone" />
+                </FrameLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Nombre visitante"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"/>
                 <EditText
                     android:id="@+id/txtnombrecheckin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Nombre"
+                    android:hint="Nombre Visitante"
                     android:minHeight="48dp"
-                    android:autofillHints="" />
+                    android:autofillHints=""
+                    app:showAsAction="always"
+                    app:actionViewClass="android.support.v7.widget.SearchView"
+                    android:background="@drawable/search_bg"
+                    android:paddingStart="10dp"
+                    android:drawableRight="@drawable/microphone"
+                    android:paddingRight="10dp"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Vehiculo"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    />
                 <EditText
                     android:id="@+id/txtvehiculocheckin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:hint="Vehiculo"
                     android:minHeight="48dp"
-                    android:autofillHints="" />
-
-                <EditText
-                    android:id="@+id/txtplacacheckin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Placa"
-                    android:minHeight="48dp"
-                    android:autofillHints="" />
-
-                <EditText
-                    android:id="@+id/txtcredencialcheckin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Credencial"
-                    android:minHeight="48dp"
-                    android:textColorHint="#78909C"
-                    android:autofillHints="" />
-                <EditText
-                    android:id="@+id/txthoracheckin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Hora"
-                    android:minHeight="48dp"
-                    android:textColorHint="#78909C"
                     android:autofillHints=""
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    />
-                <Button
+                    app:showAsAction="always"
+                    app:actionViewClass="android.support.v7.widget.SearchView"
+                    android:background="@drawable/search_bg"
+                    android:paddingStart="10dp"
+                    android:drawableRight="@drawable/microphone"
+                    android:paddingRight="10dp"/>
+
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Credencial"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"/>
+
+                <ImageView
+                    android:id="@+id/imgcredencialcheckin"
+                    android:onClick="pickPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/btninsertcheckin"
-                    android:text="Insertar"
-                    android:textColor="@color/white"/>
+                    android:src="@drawable/bigcamara"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/search_bg"
+                    android:adjustViewBounds="true"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Placa"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"/>
+
+
+                <ImageView
+                    android:id="@+id/imgplacacheckin"
+                    android:onClick="pickPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/bigcamara"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/search_bg"
+                    android:adjustViewBounds="true"
+                    />
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                    >
+                    <ProgressBar
+                        android:id="@+id/progressBarAddCheckin"
+                        style="?android:attr/colorAccent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:indeterminateTint="@android:color/white"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="50dp"
+                        android:id="@+id/btninsertcheckin"
+                        android:text="Agregar"
+                        android:textColor="@color/white"/>
+
+
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>

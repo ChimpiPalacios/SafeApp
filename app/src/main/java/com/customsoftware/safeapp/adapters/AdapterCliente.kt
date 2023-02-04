@@ -14,22 +14,19 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.Statement
 
-
-
 class AdapterCliente (val clientes:ArrayList<Clientes>, clickListener: AdapterCliente.ClickListener):RecyclerView.Adapter<AdapterCliente.ViewHolder>(){
+
     var position= -1
-
-    private var ClientesList: List<Clientes> = arrayListOf()
     private lateinit var context: Context
+    private var ClientesList: List<Clientes> = arrayListOf()
     private var clickListener: ClickListener = clickListener
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):AdapterCliente.ViewHolder {
         var v= LayoutInflater.from(parent.context).inflate(R.layout.items_clientes_rv,parent, false)
       return ViewHolder(v)
 
     }
+
     override fun getItemCount(): Int {
         return clientes.size
     }
@@ -49,8 +46,6 @@ class AdapterCliente (val clientes:ArrayList<Clientes>, clickListener: AdapterCl
         holder.empresa.text =  empresa
         holder.numerocel.text =  numerocel
 
-
-
         holder.itemView.setOnClickListener {
             clickListener.clickedItem(clientes)
         }
@@ -65,9 +60,6 @@ class AdapterCliente (val clientes:ArrayList<Clientes>, clickListener: AdapterCl
         var empresa = itemView.findViewById<TextView>(R.id.item_empresa)
         var numerocel = itemView.findViewById<TextView>(R.id.item_numerocel)
 
-
-
-
         fun bindItems(cliente: Clientes){
             val txtCliente = itemView.findViewById<TextView>(R.id.item_cliente)
             val txtEmpresa = itemView.findViewById<TextView>(R.id.item_empresa)
@@ -79,7 +71,6 @@ class AdapterCliente (val clientes:ArrayList<Clientes>, clickListener: AdapterCl
             txtCliente.text=cliente.nombre
             txtEmpresa.text=cliente.empresa
             txtNumerocel.text=cliente.numerocel
-
 
             btnRvClntDelete.setOnClickListener{
                 eliminar(CLIENTE)
@@ -107,9 +98,7 @@ class AdapterCliente (val clientes:ArrayList<Clientes>, clickListener: AdapterCl
                 val stm: Statement = conexionDB()!!.createStatement()
                 val rs: Int = stm.executeUpdate("DELETE FROM SP_CLIENTE WHERE CLIENTE = '$CLIENTE'")
             } catch (e: java.lang.Exception) {
-
             }
         }
     }
-
 }

@@ -4,7 +4,9 @@ package com.customsoftware.safeapp
 import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
+import android.view.WindowManager
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,9 +30,11 @@ class AddEmpleados: AppCompatActivity() {
     private lateinit var txtturno: TextView
     private lateinit var txtidusuario: TextView
     private lateinit var btninsertemp: Button
+    private lateinit var btnbackempleado: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.add_empleados)
 
         txtnombreemp = findViewById<TextView>(R.id.txtnombreemp)
@@ -40,6 +44,7 @@ class AddEmpleados: AppCompatActivity() {
         txtturno = findViewById<TextView>(R.id.txtturno)
         txtidusuario = findViewById<TextView>(R.id.txtidusuario)
         btninsertemp = findViewById<Button>(R.id.btninsertemp)
+        btnbackempleado = findViewById<ImageButton>(R.id.btnbackempleado)
 
         btninsertemp.setOnClickListener(){
             insertar()

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
     <androidx.appcompat.widget.LinearLayoutCompat
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_bg"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="15dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,7 +51,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="15dp">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -72,23 +72,36 @@
                         android:layout_height="96dp"
                         android:nestedScrollingEnabled="true"
                         android:visibility="gone"
-
                         />
                 </FrameLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Numero Exterior"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"/>
                 <EditText
                     android:id="@+id/txtnumerodom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:background="@drawable/search_bg"
+                    android:paddingStart="10dp"
                     android:hint="Numero Exterior"
                     android:minHeight="48dp"
                     android:autofillHints=""
                     android:inputType="number"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Numero Interior"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"/>
                 <EditText
                     android:id="@+id/txtextenciondom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:background="@drawable/search_bg"
+                    android:paddingStart="10dp"
                     android:hint="Numero Interior"
                     android:minHeight="48dp"
                     android:autofillHints="" />
@@ -97,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:id="@+id/btninsertdom"
-                    android:text="Insertar"
+                    android:text="Agregar"
                     android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>

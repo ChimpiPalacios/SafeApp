@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.provider.MediaStore
 import android.view.View
+import android.view.WindowManager
 import android.widget.*
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
@@ -49,6 +50,7 @@ class AddClientes: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_clientes)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         txtnombre = findViewById<TextView>(R.id.txtnombre)
         txtempresa = findViewById<TextView>(R.id.txtempresa)

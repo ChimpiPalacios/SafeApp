@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -18,30 +19,43 @@
         android:theme="@style/Theme.SafeApp"
         tools:targetApi="31">
         <activity
-            android:name=".UpdateResidentes"
+            android:name=".ShowCheckIn"
             android:exported="false" />
+        <activity
+            android:name=".UpdateResidentes"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
         <activity
             android:name=".UpdateDomicilio"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
         <activity
             android:name=".AddResidente"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
         <activity
             android:name=".AddDomicilio"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
         <activity
             android:name=".UpdateCheckIn"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
         <activity
-            android:name="AddCheckIn"
-            android:exported="false" />
-        <activity android:name=".Check_in" />
+            android:name=".AddCheckIn"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".Check_in"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
         <activity
             android:name=".ProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,17 +64,38 @@
         </activity>
         <activity
             android:name=".Menu"
-            android:exported="false" />
-        <activity android:name=".Menu_Clientes" />
-        <activity android:name=".Menu_Empleados" />
-        <activity android:name=".Menu_Fraccionamientos" />
-        <activity android:name=".Menu_Reportes" />
-        <activity android:name=".AddClientes" />
-        <activity android:name=".AddEmpleados" />
-        <activity android:name=".AddFraccionamientos" />
-        <activity android:name=".UpdateFraccionamientos" />
-        <activity android:name=".UpdateClientes" />
-        <activity android:name=".UpdateEmpleados" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".Menu_Clientes"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".Menu_Empleados"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".Menu_Fraccionamientos"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".Menu_Reportes"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".AddClientes"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".AddEmpleados"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".AddFraccionamientos"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".UpdateFraccionamientos"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".UpdateClientes"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name=".UpdateEmpleados"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
     </application>
 
 </manifest>

@@ -71,10 +71,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_marginTop="25dp">
 
+            <SearchView
+                android:id="@+id/search_dom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:queryHint="Buscar Domicilio"
 
+                ></SearchView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

@@ -1,10 +1,12 @@
 package com.customsoftware.safeapp
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.View
+import android.view.WindowManager
 import android.widget.*
 import androidx.core.view.contains
 import com.customsoftware.safeapp.modelos.Fraccionamientos
@@ -27,6 +29,7 @@ class AddDomicilio : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_domicilio)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
 
         search_calle_dom = findViewById<SearchView>(R.id.search_calle_dom)
@@ -119,6 +122,9 @@ class AddDomicilio : AppCompatActivity() {
         var CALLE : String = text_calle.trim()
         var NUMERO : String = txtnumerodom.text.toString().trim();
         var NoEXTENSION : String = txtextenciondom.text.toString().trim();
+        val sharedPref = this.getSharedPreferences("id_data", Context.MODE_PRIVATE)
+        val IDFRACC = sharedPref.getInt("ID", 0)
+
         if(text_calle == ""){
             Toast.makeText(applicationContext,"El campo Calle es necesario", Toast.LENGTH_SHORT).show()
         }else if(NUMERO.isEmpty()){
@@ -126,11 +132,14 @@ class AddDomicilio : AppCompatActivity() {
         } else{
             try {
                 val stm: Statement = conexionDB()!!.createStatement()
-                val rs: ResultSet = stm.executeQuery("SELECT * FROM SP_DOMICILIO WHERE CALLE = '$CALLE' AND NUMERO = '$NUMERO$NoEXTENSION'")
+                val rs: ResultSet = stm.executeQuery("SELECT * FROM SP_DOMICILIO WHERE CALLE = '$CALLE' AND NUMERO = '$NUMERO-$NoEXTENSION'")
                 if (!rs.isBeforeFirst()){
-                    val affectedRows: Int = stm.executeUpdate("INSERT INTO SP_DOMICILIO (CALLE,NUMERO,IDFRACC) VALUES ('$CALLE','$NUMERO$NoEXTENSION',1)")
+                    val affectedRows: Int = stm.executeUpdate("INSERT INTO SP_DOMICILIO (CALLE,NUMERO,IDFRACC) VALUES ('$CALLE','$NUMERO-$NoEXTENSION',$IDFRACC)")
                     if (affectedRows > 0) {
-                        Toast.makeText(applicationContext,"INSERTADO CORRECTAMENTE", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, Check_in::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(intent)
+                        finish()
                     }
                 }else{
                     Toast.makeText(applicationContext,"NO SE PERMITEN DUPLICADOS", Toast.LENGTH_SHORT).show()
@@ -143,9 +152,10 @@ class AddDomicilio : AppCompatActivity() {
     }
 
     private fun lista_calles(){
-
+        val sharedPref = this.getSharedPreferences("id_data", Context.MODE_PRIVATE)
+        val IDFRACC = sharedPref.getInt("ID", 0)
         val stm: Statement = conexionDB()!!.createStatement()
-        val rs: ResultSet = stm.executeQuery("SELECT DISTINCT CALLE FROM SP_DOMICILIO")
+        val rs: ResultSet = stm.executeQuery("SELECT DISTINCT CALLE FROM SP_DOMICILIO WHERE IDFRACC =$IDFRACC ")
         if (!rs.isBeforeFirst()){
             Toast.makeText(this, "NO SE ENCONTRARON REGISTROS", Toast.LENGTH_SHORT).show()
             return

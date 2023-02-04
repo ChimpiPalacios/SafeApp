@@ -3,6 +3,7 @@ package com.customsoftware.safeapp
 import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -30,6 +31,7 @@ class UpdateClientes: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.updateclientes)
         initData()
 

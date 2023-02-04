@@ -190,6 +190,14 @@
                 android:text="Perfil:"
                 android:textColor="#DCD5D5"
                 android:textSize="15sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="5dp"
+                android:text="Tipo Residente:"
+                android:textColor="#DCD5D5"
+                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -201,6 +209,16 @@
 
             <TextView
                 android:id="@+id/item_perfil_residente"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="5dp"
+                android:text="Perfil X"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/item_tipo_res_residente"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

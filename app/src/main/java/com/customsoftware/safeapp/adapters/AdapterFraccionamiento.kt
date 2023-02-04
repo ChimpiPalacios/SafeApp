@@ -14,16 +14,14 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.Statement
 
-
-
 class AdapterFraccionamiento (val fraccionamientos:ArrayList<Fraccionamientos>, clickListener: ClickListener):RecyclerView.Adapter<AdapterFraccionamiento.ViewHolder>(){
-    var position= -1
 
+    var position= -1
     private var FraccionamientoList: List<Fraccionamientos> = arrayListOf()
     private lateinit var context: Context
     private var clickListener: ClickListener = clickListener
 
-    public fun setData(fraccionamientos: List<Fraccionamientos>){
+    fun setData(fraccionamientos: List<Fraccionamientos>){
         this.FraccionamientoList = fraccionamientos
         notifyDataSetChanged()
     }
@@ -53,14 +51,9 @@ class AdapterFraccionamiento (val fraccionamientos:ArrayList<Fraccionamientos>, 
         holder.pais.text = pais
         holder.estado.text = estado
 
-
-
         holder.itemView.setOnClickListener {
             clickListener.clickedItem(fractionation)
         }
-
-
-
     }
 
     interface ClickListener{
@@ -74,7 +67,6 @@ class AdapterFraccionamiento (val fraccionamientos:ArrayList<Fraccionamientos>, 
         var municipio = itemView.findViewById<TextView>(R.id.item_municipio)
         var etapa = itemView.findViewById<TextView>(R.id.item_etapa)
 
-
         fun bindItems(fraccionamiento: Fraccionamientos){
 
             val txtFracc = itemView.findViewById<TextView>(R.id.item_fracc)
@@ -85,16 +77,15 @@ class AdapterFraccionamiento (val fraccionamientos:ArrayList<Fraccionamientos>, 
             val btnRvDelete = itemView.findViewById<Button>(R.id.btnRvDelete)
             var FRACCIONAMIENTO : String = fraccionamiento.nombre
 
-
             txtFracc.text=fraccionamiento.nombre
             txtPais.text=fraccionamiento.pais
             txtMunicipio.text=fraccionamiento.municipio
             txtEstado.text=fraccionamiento.estado
             txtEtapa.text=fraccionamiento.etapa
 
-            btnRvDelete.setOnClickListener { eliminar(FRACCIONAMIENTO) }
-
-
+            btnRvDelete.setOnClickListener {
+                eliminar(FRACCIONAMIENTO)
+            }
         }
 
         private fun conexionDB(): Connection? {
@@ -109,7 +100,6 @@ class AdapterFraccionamiento (val fraccionamientos:ArrayList<Fraccionamientos>, 
                     "Chimpi8108"
                 )
             } catch (e: java.lang.Exception) {
-
             }
             return cnn
         }
@@ -119,13 +109,8 @@ class AdapterFraccionamiento (val fraccionamientos:ArrayList<Fraccionamientos>, 
                     val stm: Statement = conexionDB()!!.createStatement()
                     val rs: Int = stm.executeUpdate("DELETE FROM SP_FRACCIONAMIENTO WHERE FRACCIONAMIENTO = '$FRACCIONAMIENTO'")
                 } catch (e: java.lang.Exception) {
-
                 }
         }
-
-
-
-
     }
 }
 

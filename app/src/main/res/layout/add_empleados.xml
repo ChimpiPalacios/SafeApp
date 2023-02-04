@@ -1,75 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="20dp"
-    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/txtnombreemp"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Nombre"
-        android:minHeight="48dp"
-        android:autofillHints="" />
+        android:background="@drawable/background_bg"
+        android:orientation="vertical"
+        android:paddingTop="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <ImageButton
+                    android:id="@+id/btnbackempleado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="#00000000"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    app:srcCompat="@drawable/icon_previous"
+                    android:contentDescription="BAck" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Insertar Empleado"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/rv_bg">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/txtap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Apellido Paterno"
-        android:minHeight="48dp"
-        android:textColorHint="#78909C"
-        android:autofillHints="" />
+                <EditText
+                    android:id="@+id/txtnombreemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Nombre"
+                    android:minHeight="48dp"
+                    android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/txtam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Apeliido Materno"
-        android:minHeight="48dp"
-        android:textColorHint="#78909C"
-        android:autofillHints="" />
+                <EditText
+                    android:id="@+id/txtap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Apellido Paterno"
+                    android:minHeight="48dp"
+                    android:textColorHint="#78909C"
+                    android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/txtbdt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Cumpleaños"
-        android:minHeight="48dp"
-        android:textColorHint="#78909C"
-        android:autofillHints="" />
+                <EditText
+                    android:id="@+id/txtam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Apeliido Materno"
+                    android:minHeight="48dp"
+                    android:textColorHint="#78909C"
+                    android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/txtturno"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Turno"
-        android:minHeight="48dp"
-        android:autofillHints="" />
+                <EditText
+                    android:id="@+id/txtbdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Cumpleaños"
+                    android:minHeight="48dp"
+                    android:textColorHint="#78909C"
+                    android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/txtidusuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="ID Usuario"
-        android:minHeight="48dp"
-        android:autofillHints="" />
+                <EditText
+                    android:id="@+id/txtturno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Turno"
+                    android:minHeight="48dp"
+                    android:autofillHints="" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:id="@+id/btninsertemp"
-        android:hint="Insertar"/>
+                <EditText
+                    android:id="@+id/txtidusuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="ID Usuario"
+                    android:minHeight="48dp"
+                    android:autofillHints="" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/btninsertemp"
+                    android:hint="Insertar"/>
 
 
 
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
+

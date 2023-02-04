@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.os.StrictMode.ThreadPolicy
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.customsoftware.safeapp.databinding.ActivityMainBinding
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(binding.root)
 
         //configure google sign in
@@ -70,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
             finish()
         }
-
+        startActivity(Intent(this@MainActivity, Menu::class.java))
 
 
     }

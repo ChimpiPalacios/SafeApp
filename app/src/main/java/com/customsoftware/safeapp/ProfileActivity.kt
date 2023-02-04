@@ -3,6 +3,7 @@ package com.customsoftware.safeapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Button
 import com.customsoftware.safeapp.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -16,6 +17,7 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         binding = ActivityProfileBinding.inflate(layoutInflater)
 
@@ -41,7 +43,7 @@ class ProfileActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
 
         if (firebaseUser == null){
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, Menu::class.java))
             finish()
         }else{
             val email = firebaseUser.email
