@@ -6,8 +6,11 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
+import android.media.ExifInterface
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.os.StrictMode
 import android.provider.MediaStore
 import android.speech.RecognizerIntent
@@ -15,16 +18,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
+import androidx.core.content.FileProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.IOException
 import java.lang.Exception
 import java.sql.*
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.Date
 
 class AddCheckIn : AppCompatActivity() {
 
@@ -55,8 +62,13 @@ class AddCheckIn : AppCompatActivity() {
     private var currentImageView: ImageView? = null
     private var currentEditText: EditText? = null
 
-    private val REQUEST_IMAGE_CAPTURE = 1
     private val SPEECH_REQUEST_CODE = 0
+    private val REQUEST_IMAGE_CAPTURE = 1
+    private val REQUEST_STORAGE_PERMISSION = 2
+    private var currentPhotoPath: String = ""
+    private var imgcredencialCurrentPath: String = ""
+    private var imgplacaCurrentPath: String = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -104,11 +116,13 @@ class AddCheckIn : AppCompatActivity() {
         imgcredencialcheckin.setOnClickListener {
             currentImageView = imgcredencialcheckin
             dispatchTakePictureIntent()
+            imgcredencialCurrentPath = currentPhotoPath
         }
 
         imgplacacheckin.setOnClickListener {
             currentImageView = imgplacacheckin
             dispatchTakePictureIntent()
+            imgplacaCurrentPath = currentPhotoPath
         }
 
         search_res_checkin.setOnSearchClickListener{
@@ -383,8 +397,8 @@ class AddCheckIn : AppCompatActivity() {
         val stream1 = ByteArrayOutputStream()
         val stream2 = ByteArrayOutputStream()
 
-        img1.compress(Bitmap.CompressFormat.JPEG, 80, stream1)
-        img2.compress(Bitmap.CompressFormat.JPEG, 80, stream2)
+        img1.compress(Bitmap.CompressFormat.JPEG, 100, stream1)
+        img2.compress(Bitmap.CompressFormat.JPEG, 100, stream2)
 
         val img1ByteArray = stream1.toByteArray()
         val img2ByteArray = stream2.toByteArray()
@@ -429,6 +443,13 @@ class AddCheckIn : AppCompatActivity() {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(intent)
                         finish()
+                        imgcredencialCurrentPath?.let {
+                            File(it).delete()
+                        }
+                        imgplacaCurrentPath?.let {
+                            File(it).delete()
+                        }
+
                     }
 
                 } else {
@@ -449,6 +470,13 @@ class AddCheckIn : AppCompatActivity() {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(intent)
                         finish()
+                        imgcredencialCurrentPath?.let {
+                            File(it).delete()
+                        }
+                        imgplacaCurrentPath?.let {
+                            File(it).delete()
+                        }
+
                     }
                 }
 
@@ -466,28 +494,76 @@ class AddCheckIn : AppCompatActivity() {
     private fun dispatchTakePictureIntent() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                val photoFile: File? = try {
+                    createImageFile()
+                } catch (ex: IOException) {
+                    null
+                }
+
+                photoFile?.also {
+                    val photoURI: Uri = FileProvider.getUriForFile(
+                        this,
+                        "com.customsoftware.android.fileprovider",
+                        it
+                    )
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                }
             }
         }
     }
 
+    @Throws(IOException::class)
+    private fun createImageFile(): File {
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile(
+            "JPEG_${timeStamp}_",
+            ".jpg",
+            storageDir
+        ).apply {
+            currentPhotoPath = absolutePath
+        }
+    }
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            val imageBitmap = data?.extras?.get("data") as Bitmap
-            currentImageView?.setImageBitmap(imageBitmap)
-            currentImageView?.layoutParams?.width = 500
+        val imageFile = File(currentPhotoPath)
+        if (imageFile.exists()) {
+            val exif = ExifInterface(currentPhotoPath)
+            val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED)
+            val imageBitmap = BitmapFactory.decodeFile(currentPhotoPath)
+            val rotatedBitmap = when (orientation) {
+                ExifInterface.ORIENTATION_ROTATE_90 -> rotateImage(imageBitmap, 90F)
+                ExifInterface.ORIENTATION_ROTATE_180 -> rotateImage(imageBitmap, 180F)
+                ExifInterface.ORIENTATION_ROTATE_270 -> rotateImage(imageBitmap, 270F)
+                else -> imageBitmap
+            }
+
+            val aspectRatio = rotatedBitmap.width.toFloat() / rotatedBitmap.height.toFloat()
+            val targetWidth = currentImageView?.width ?: ViewGroup.LayoutParams.MATCH_PARENT
+            val targetHeight = (targetWidth / aspectRatio).toInt()
+            val scaledBitmap = Bitmap.createScaledBitmap(rotatedBitmap, targetWidth, targetHeight, false)
+            currentImageView?.setImageBitmap(scaledBitmap)
+            currentImageView?.layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
             currentImageView?.layoutParams?.height = ViewGroup.LayoutParams.WRAP_CONTENT
-
         }
-
 
         if (requestCode == SPEECH_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val result = data!!.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
             currentEditText?.setText(result!![0])
         }
     }
+
+    private fun rotateImage(bitmap: Bitmap, degree: Float): Bitmap {
+        val matrix = Matrix()
+        matrix.postRotate(degree)
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    }
+
+
 
 
 

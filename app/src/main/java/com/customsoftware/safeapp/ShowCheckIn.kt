@@ -12,7 +12,7 @@ import android.view.WindowManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+
 import java.sql.*
 import java.text.SimpleDateFormat
 import java.sql.Blob
@@ -40,7 +40,6 @@ class ShowCheckIn : AppCompatActivity() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.show_check_in)
 
-
         val sharedPref = this.getSharedPreferences("id_data", Context.MODE_PRIVATE)
         IDCHECK = sharedPref.getInt("IDCHECK", 0)
 
@@ -60,10 +59,6 @@ class ShowCheckIn : AppCompatActivity() {
         imgplacashowcheckin = findViewById(R.id.imgplacashowcheckin)
 
         getData()
-
-
-
-
     }
 
     private fun getData(){
@@ -129,32 +124,24 @@ class ShowCheckIn : AppCompatActivity() {
         txt_numero_showcheckin.setText(NUMERO)
         txt_res_showcheckin.setText(NOMBRERESI)
 
-        /*
+
         imgcredencialshowcheckin.setOnClickListener{
-            val intent = Intent(this, ImageZoomActivity::class.java)
-            intent.putExtra("image", credencialBlob)
+            val intent = Intent(this, ImageZoom::class.java)
+            intent.putExtra("image", "2" )
             startActivity(intent)
         }
 
         imgplacashowcheckin.setOnClickListener{
-            val intent = Intent(this, ImageZoomActivity::class.java)
-            intent.putExtra("image", placaBlob)
+            val intent = Intent(this, ImageZoom::class.java)
+            intent.putExtra("image", "1")
             startActivity(intent)
         }
-
-
-        */
-
-
-
     }
+
     override fun onTouchEvent(event: MotionEvent): Boolean {
         scaleGestureDetector.onTouchEvent(event)
         return true
     }
-
-
-
 
     private fun conexionDB(): Connection? {
         var cnn: Connection? = null

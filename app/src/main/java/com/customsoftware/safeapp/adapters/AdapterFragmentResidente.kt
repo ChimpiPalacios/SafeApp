@@ -1,15 +1,16 @@
 package com.customsoftware.safeapp.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Filter
-import android.widget.Filterable
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.customsoftware.safeapp.CallesFragment
+import com.customsoftware.safeapp.Check_in
 import com.customsoftware.safeapp.R
 import com.customsoftware.safeapp.modelos.Residentes
 
@@ -24,7 +25,6 @@ class AdapterFragmentResidente(var data: ArrayList<Residentes>,val context: Cont
     private var originalData = ArrayList<Residentes>()
     private var dataFilter = DataFilter()
     private var clickListener: ClickListener = clicklistener
-    private var AdapterResidenteList : List<Residentes> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.irems_residentes_rv, parent, false)
@@ -125,7 +125,7 @@ class AdapterFragmentResidente(var data: ArrayList<Residentes>,val context: Cont
             txtIdDom.text = data.iddom.toString()
 
             btnRvResidentesDelete.setOnClickListener{
-                eliminar(txtNombre.text.toString())
+                eliminar(txtNombre.text.toString(),txtNumeroCel.text.toString(),txtAp.text.toString(),txtAm.text.toString(),txtPerfil.text.toString(),txtTipoRes.text.toString(),txtIdDom.text.toString())
             }
         }
 
@@ -145,10 +145,30 @@ class AdapterFragmentResidente(var data: ArrayList<Residentes>,val context: Cont
             return cnn
         }
 
-        private fun eliminar(RESIDENTE: String) {
+        private fun eliminar(RESIDENTE: String,NUMEROCEL: String, AP: String, AM: String, PERFIL: String, TIPORES: String, IDDOM: String) {
             try {
+                val builder = AlertDialog.Builder(itemView.context)
+                builder.setTitle("Confirmación")
+                builder.setMessage("Está seguro de eliminar al residente: $RESIDENTE $AP $AM?")
+                builder.setPositiveButton("Sí") { dialog, which ->
                 val stm: Statement = conexionDB()!!.createStatement()
-                val rs: Int = stm.executeUpdate("DELETE FROM SP_RESIDENTE WHERE NOMBRE = '$RESIDENTE'")
+                var IDRESIDENTE: String = ""
+
+                val rs = stm.executeQuery("SELECT IDRESIDENTE FROM SP_RESIDENTE WHERE NOMBRE='$RESIDENTE' AND NUMEROCEL='$NUMEROCEL' AND AP='$AP' AND AM='$AM' AND PERFIL='$PERFIL' AND TIPO_RES='$TIPORES' AND IDDOM=$IDDOM ")
+                if (rs.next()) {
+                    IDRESIDENTE = rs.getInt("IDRESIDENTE").toString()
+                }
+                val rs2: Int = stm.executeUpdate("DELETE FROM SP_RESIDENTE WHERE IDRESIDENTE = $IDRESIDENTE")
+                if(rs2 > 0){
+                    Toast.makeText(itemView.context, "Eliminando Residente...", Toast.LENGTH_LONG).show()
+                    val intent = Intent(itemView.context, Check_in::class.java)
+                    itemView.context.startActivity(intent)
+                }
+                }
+                builder.setNegativeButton("No") { dialog, which ->
+                    dialog.dismiss()
+                }
+                builder.create().show()
             } catch (e: java.lang.Exception) {
             }
         }

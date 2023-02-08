@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.customsoftware.safeapp.CallesFragment
+import com.customsoftware.safeapp.Check_in
 import com.customsoftware.safeapp.R
 import com.customsoftware.safeapp.modelos.Domicilios
 
@@ -100,7 +102,7 @@ class AdapterFragmentDomicilio(var data: ArrayList<Domicilios>,val context: Cont
             txtNumero.text = data.numero.toString()
 
             btnRvDomicilioDelete.setOnClickListener{
-                eliminar(DOMICILIO)
+                eliminar(txtCalle.text.toString(),txtNumero.text.toString(),DOMICILIO)
             }
         }
 
@@ -120,13 +122,30 @@ class AdapterFragmentDomicilio(var data: ArrayList<Domicilios>,val context: Cont
             }
             return cnn
         }
-        private fun eliminar(DOMICILIO: String) {
+        private fun eliminar(CALLE: String, NUMERO: String, DOMICILIO: String) {
             try {
-                val stm: Statement = conexionDB()!!.createStatement()
-                stm.executeUpdate("DELETE FROM SP_DOMICILIO WHERE IDFRACC = $DOMICILIO")
-                Toast.makeText(itemView.context, "Domicilio eliminado", Toast.LENGTH_SHORT).show()
-                val intent = Intent(itemView.context, CallesFragment::class.java)
-                itemView.context.startActivity(intent)
+                val builder = AlertDialog.Builder(itemView.context)
+                builder.setTitle("Confirmación")
+                builder.setMessage("Está seguro de eliminar el domicilio: CALLE $CALLE NUMERO $NUMERO")
+                builder.setPositiveButton("Sí") { dialog, which ->
+                    val stm: Statement = conexionDB()!!.createStatement()
+                    var IDDOM: String = ""
+
+                    val rs = stm.executeQuery("SELECT IDDOM FROM SP_DOMICILIO WHERE CALLE = '$CALLE' AND NUMERO = '$NUMERO' AND IDFRACC=$DOMICILIO ")
+                    if (rs.next()) {
+                        IDDOM = rs.getInt("IDDOM").toString()
+                    }
+                    val rs2: Int = stm.executeUpdate("DELETE FROM SP_DOMICILIO WHERE IDDOM = $IDDOM")
+                    if(rs2 > 0){
+                        Toast.makeText(itemView.context, "Eliminando Domicilio...", Toast.LENGTH_LONG).show()
+                        val intent = Intent(itemView.context, Check_in::class.java)
+                        itemView.context.startActivity(intent)
+                    }
+                }
+                builder.setNegativeButton("No") { dialog, which ->
+                    dialog.dismiss()
+                }
+                builder.create().show()
             } catch (e: java.lang.Exception) {
                 Toast.makeText(itemView.context, e.message, Toast.LENGTH_SHORT).show()
             }
