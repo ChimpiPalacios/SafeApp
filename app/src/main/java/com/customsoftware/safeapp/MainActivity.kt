@@ -3,12 +3,16 @@ package com.customsoftware.safeapp
 import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
-import android.os.StrictMode.ThreadPolicy
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.customsoftware.safeapp.databinding.ActivityMainBinding
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -16,17 +20,22 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.sql.Connection
 import java.sql.DriverManager
-import java.sql.ResultSet
 import java.sql.Statement
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
 //view binding
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var gso: GoogleSignInOptions
+    private lateinit var gsc: GoogleSignInClient
+    private lateinit var callbackManager: CallbackManager
+
 
     private lateinit var firebaseAuth: FirebaseAuth
 //constants
@@ -44,24 +53,48 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //configure google sign in
-        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-        googleSignInClient = GoogleSignIn.getClient(this,googleSignInOptions)
+        gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+           .requestEmail()
+           .build()
+        gsc = GoogleSignIn.getClient(this,gso)
 
-        firebaseAuth = FirebaseAuth.getInstance()
-        checkUser()
+        val acct = GoogleSignIn.getLastSignedInAccount(this)
+        if(acct != null){
+            //checkUser()
+            startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+        }
 
+        /*firebaseAuth = FirebaseAuth.getInstance()
+        checkUser()*/
 
         binding.googleSignInBtn.setOnClickListener{
             Log.d(TAG, "onCreate: begin Google SignIn")
-            val intent = googleSignInClient.signInIntent
+            val intent = gsc.signInIntent
             startActivityForResult(intent, RC_SIGN_IN)
 
         }
 
+        callbackManager = CallbackManager.Factory.create();
 
+        LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult>{
+            override fun onSuccess(result: LoginResult) {
+                TODO("Not yet implemented")
+                startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                finish()
+            }
+
+            override fun onCancel() {
+                TODO("Not yet implemented")
+            }
+
+            override fun onError(error: FacebookException) {
+                TODO("Not yet implemented")
+            }
+        }
+        )
+        binding.fbSignInBtn.setOnClickListener{
+            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+        }
     }
 
     private fun checkUser() {
@@ -72,22 +105,26 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
             finish()
         }
+<<<<<<< Updated upstream
         startActivity(Intent(this@MainActivity, Menu::class.java))
 
 
+=======
+>>>>>>> Stashed changes
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode== RC_SIGN_IN){
-            Log.d(TAG, "onActivityResult: Google SignIn intent result")
             val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = accountTask.getResult(ApiException::class.java)
-                firebaseAuthWithGoogleAccount(account)
-                
-
+                if(account != null){
+                    //firebaseAuthWithGoogleAccount(account)
+                    startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                }
             }catch (e: Exception){
                 Log.d(TAG, "onActivityResult: ${e.message}")
             }
@@ -95,35 +132,60 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun firebaseAuthWithGoogleAccount(account: GoogleSignInAccount?) {
-        Log.d(TAG, "firebaseAuthWithGoogleAccount: begin firebase auth with google account")
         val credential = GoogleAuthProvider.getCredential(account!!.idToken,null)
         firebaseAuth.signInWithCredential(credential)
             .addOnSuccessListener { authResult ->
-                Log.d(TAG, "firebaseAuthWithGoogleAccount: LoggedIn")
                 val firebaseUser = firebaseAuth.currentUser
-                val uid = firebaseUser!!.uid
+                //val uid = firebaseUser!!.uid
                 val email = firebaseUser!!.email
-                Log.d(TAG, "firebaseAuthWithGoogleAccount: $uid")
-                Log.d(TAG, "firebaseAuthWithGoogleAccount: $email")
+                val nombre = firebaseUser!!.displayName
 
                 if (authResult.additionalUserInfo!!.isNewUser){
-                    Log.d(TAG, "firebaseAuthWithGoogleAccount: Account created... \n$email")
-                    Toast.makeText(this@MainActivity, "Account created... \n$email", Toast.LENGTH_SHORT).show()
+                    //AGREGAR NUEVO USUARIO A LA BASE DE DATOS
+                    addnewUser(account)
+
+                    startActivity(Intent(this@MainActivity, BienvenidoActivity::class.java))
 
                 }else{
-                    Log.d(TAG, "firebaseAuthWithGoogleAccount: Existing user... \n$email")
-                    Toast.makeText(this@MainActivity, "LoggedIn... \n$email", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
                 }
-
-                startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
-                finish()
             }
             .addOnFailureListener{e ->
                 Log.d(TAG, "firebaseAuthWithGoogleAccount: Loggin Failed due to ${e.message}")
                 Toast.makeText(this@MainActivity, "Loggin Failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
-
-
-
+        finish()
     }
+
+    private fun addnewUser(account: GoogleSignInAccount?) {
+        try {
+            val stm: Statement = conexionDB()!!.createStatement()
+            val rs: Int = stm.executeUpdate("INSERT INTO USUARIOS (USUARIO,CONTRASEÑA,PUESTO,LOGO,COLOR) VALUES ('" + account!!.email + "')")
+            if (rs > 0) {
+                Toast.makeText(applicationContext, "Insertado correctamente.", Toast.LENGTH_LONG).show()
+            }
+        } catch (e: java.lang.Exception) {
+            Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun conexionDB(): Connection? {
+        var cnn: Connection? = null
+
+        try {
+            val politica = StrictMode.ThreadPolicy.Builder().permitAll().build()
+            StrictMode.setThreadPolicy(politica)
+            Class.forName("org.gjt.mm.mysql.Driver").newInstance()
+            //remotemysql.com:
+            cnn = DriverManager.getConnection(
+                "jdbc:mysql://www.customsoftware.com.mx:3306/i2721332_wp1",
+                "chimpi",
+                "Chimpi8108"
+            )
+        } catch (e: java.lang.Exception) {
+            Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
+        }
+        return cnn
+    }
+
 }
