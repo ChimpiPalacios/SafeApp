@@ -25,6 +25,7 @@ class Menu: AppCompatActivity() {
         val btn_empleados = findViewById<ImageButton>(R.id.btn_empleados)
         val btn_fraccionamientos = findViewById<ImageButton>(R.id.btn_fraccionamientos)
         val btn_reportes = findViewById<ImageButton>(R.id.btn_reportes)
+        val btn_access = findViewById<ImageButton>(R.id.btn_access)
 
 
         btn_clientes.setOnClickListener{
@@ -41,6 +42,10 @@ class Menu: AppCompatActivity() {
         }
         btn_reportes.setOnClickListener{
             val Intent = Intent(this,Menu_Reportes::class.java)
+            startActivity(Intent)
+        }
+        btn_access.setOnClickListener{
+            val Intent = Intent(this,Access::class.java)
             startActivity(Intent)
         }
     }

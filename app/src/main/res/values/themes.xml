@@ -16,4 +16,15 @@
         <item name="android:navigationBarColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Style for the table header -->
+    <style name="TableHeaderStyle">
+        <item name="android:background">#80ADD8E6</item> <!-- Light blue color -->
+    </style>
+
+    <!-- Style for the table rows -->
+    <style name="TableRowStyle">
+        <item name="android:background">#FFF5F5F5</item> <!-- Light white color -->
+    </style>
+
 </resources>

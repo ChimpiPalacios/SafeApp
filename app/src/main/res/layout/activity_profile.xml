@@ -31,12 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="5dp"
-<<<<<<< Updated upstream
             android:text="Bienvenido!"
-=======
-            android:text="¡Bienvenido!"
-
->>>>>>> Stashed changes
             android:textColor="@color/black"
             android:textSize="35sp"
             android:textStyle="bold" />
@@ -96,7 +91,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-<<<<<<< Updated upstream
                 android:layout_marginTop="25dp">
                 <TextView
                     android:textColor="@color/white"
@@ -106,17 +100,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     />
-                <Button
-                    android:id="@+id/logoutBtn"
-                    android:layout_width="97dp"
-                    android:layout_height="48dp"
-                    android:textColor="@color/black"
-                    android:backgroundTint="@color/white"
-                    android:text="Logout"
-                    android:textSize="12sp"
-                    />
-=======
-                android:gravity="center_horizontal">
+
                 <Button
                     android:id="@+id/logoutBtn"
                     android:layout_gravity="center_horizontal"
@@ -127,7 +111,7 @@
                     android:backgroundTint="@color/white"
                     android:text="Logout"
                     android:textSize="12sp"/>
->>>>>>> Stashed changes
+
                 <Button
                     android:layout_marginStart="5dp"
                     android:id="@+id/MenuBtn"
@@ -138,7 +122,7 @@
                     android:textColor="@color/black"
                     android:text="Menu"
                     android:textSize="12sp"
-<<<<<<< Updated upstream
+
                     android:backgroundTint="@color/white"
                     />
                 <TextView
@@ -149,12 +133,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     />
-=======
-                    android:textAlignment="center"
-                    android:backgroundTint="@color/white"/>
 
-
->>>>>>> Stashed changes
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

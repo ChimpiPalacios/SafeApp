@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
         callbackManager = CallbackManager.Factory.create();
 
-        LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult>{
+       LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult>{
             override fun onSuccess(result: LoginResult) {
                 TODO("Not yet implemented")
                 startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                 TODO("Not yet implemented")
             }
         }
-        )
+       )
         binding.fbSignInBtn.setOnClickListener{
             LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
         }
@@ -105,12 +105,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
             finish()
         }
-<<<<<<< Updated upstream
         startActivity(Intent(this@MainActivity, Menu::class.java))
 
 
-=======
->>>>>>> Stashed changes
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -127,6 +125,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }catch (e: Exception){
                 Log.d(TAG, "onActivityResult: ${e.message}")
+
             }
         }
     }
@@ -160,7 +159,7 @@ class MainActivity : AppCompatActivity() {
     private fun addnewUser(account: GoogleSignInAccount?) {
         try {
             val stm: Statement = conexionDB()!!.createStatement()
-            val rs: Int = stm.executeUpdate("INSERT INTO USUARIOS (USUARIO,CONTRASEÑA,PUESTO,LOGO,COLOR) VALUES ('" + account!!.email + "')")
+            val rs: Int = stm.executeUpdate("INSERT INTO SP_USUARIOS (CORREO,NOMBRE) VALUES ('" + account!!.email + "', '"+account!!.displayName +"')")
             if (rs > 0) {
                 Toast.makeText(applicationContext, "Insertado correctamente.", Toast.LENGTH_LONG).show()
             }

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="?attr/colorAccent"
+    >
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/background_bg"
+        android:paddingTop="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <ImageButton
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/btnbackshowreport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:contentDescription="Back"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    app:srcCompat="@drawable/icon_previous" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:text="Accesos"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/rv_bg">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fecha Inicio"
+                                android:layout_marginLeft="8dp" />
+
+                            <EditText
+                                android:id="@+id/txt_fechaIni_showreport"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:background="@drawable/search_bg"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:hint="01/02/2023"
+                                android:inputType="none"
+                                android:paddingStart="10dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hora Inicio"
+                                android:layout_marginLeft="8dp" />
+
+                            <EditText
+                                android:id="@+id/txt_horaIni_showreport"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:background="@drawable/search_bg"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:hint="12:00 am"
+                                android:inputType="none"
+                                android:paddingStart="10dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="15dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fecha Fin"
+                                android:layout_marginLeft="8dp" />
+
+                            <EditText
+                                android:id="@+id/txt_fechaFin_showreport"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:background="@drawable/search_bg"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:hint="01/02/2023"
+                                android:inputType="none"
+                                android:paddingStart="10dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hora Fin"
+                                android:layout_marginLeft="8dp" />
+
+                            <EditText
+                                android:id="@+id/txt_horaFin_showreport"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:background="@drawable/search_bg"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:hint="12:00 am"
+                                android:inputType="none"
+                                android:paddingStart="10dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fillViewport="true">
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fillViewport="true">
+
+                            <TableLayout
+                                android:id="@+id/table_layout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/search_bg"
+                                android:padding="1dp"
+                                >
+
+                                <TableRow
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+
+                                </TableRow>
+
+                            </TableLayout>
+
+
+                        </HorizontalScrollView>
+
+                    </ScrollView>
+
+
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+

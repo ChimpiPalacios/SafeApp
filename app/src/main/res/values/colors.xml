@@ -19,6 +19,17 @@
     <color name="shape_color_light">#FFFFFF</color>
     <color name="shape_color_dark">#000000</color>
 
+    <color name="light_white">#FFF5F5F5</color>
+    <color name="light_gray">#FFEAEAEA</color>
+    <color name="light_blue">#2196F3</color>
+    <color name="light_darkgray">#A9A9A9</color>
+
+    <color name="light_dark">#434141</color>
+
+
+
+
+
 
 
 </resources>
